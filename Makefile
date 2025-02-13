@@ -10,16 +10,18 @@ SRC_DIR = src
 OBJ_DIR = obj
 BIN_DIR = bin
 
-# Source files (add your .c and .cpp files here)
-SRC_FILES = $(wildcard $(SRC_DIR)/*.c) $(wildcard $(SRC_DIR)/*.cpp)
+# Recursively find all .c and .cpp files in SRC_DIR and its subdirectories
+SRC_FILES = $(shell find $(SRC_DIR) -type f -name '*.c' -o -type f -name '*.cpp')
 OBJ_FILES = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRC_FILES)))
+
+$(info Compiling the following source files: $(SRC_FILES))
 
 # Target executable
 TARGET = $(BIN_DIR)/main
 
 # SDL library flags
-SDL_CFLAGS = $(shell pkg-config --cflags sdl2)
-SDL_LDFLAGS = $(shell pkg-config --libs sdl2)
+SDL_CFLAGS = $(shell pkg-config --cflags sdl2 SDL2_ttf)
+SDL_LDFLAGS = $(shell pkg-config --libs sdl2 SDL2_ttf)
 
 # Add other libraries here (e.g., SDL_image, SDL_ttf, etc.)
 # EXTRA_LIBS_CFLAGS = $(shell pkg-config --cflags sdl2_image)
@@ -40,12 +42,12 @@ $(TARGET): $(OBJ_FILES)
 
 # Compile .c files
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	@mkdir -p $(OBJ_DIR)
+	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 # Compile .cpp files
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
-	@mkdir -p $(OBJ_DIR)
+	@mkdir -p $(dir $@)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 # Clean up build files

@@ -1,0 +1,30 @@
+# Ignore the /bin/ directory
+/bin/
+
+# Ignore the /obj/ directory
+/obj/
+
+# Ignore other common build artifacts
+*.o
+*.a
+*.so
+*.dll
+*.exe
+*.out
+
+# Ignore editor-specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore log files
+*.log
+*.tmp
+
