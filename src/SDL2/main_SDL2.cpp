@@ -4,6 +4,8 @@
 
 using namespace std;
 
+namespace abdullah_SDL2 {
+
 #define USEREVENT_FRAMETIME (2)
 #define SCREEN_WIDTH 640
 #define SCREEN_HEIGHT 480
@@ -181,7 +183,7 @@ Triangle generate_dorito(int sidelength_px)
     return t;
 }
 
-int main_SDL2(void)
+int main(void)
 {
     if (!prog_init())
         return 1;
@@ -228,4 +230,8 @@ int main_SDL2(void)
     }
 
     prog_close();
+
+    return 0;
+}
+
 }

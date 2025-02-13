@@ -21,7 +21,7 @@ TARGET = $(BIN_DIR)/main
 
 # SDL library flags
 SDL_CFLAGS = $(shell pkg-config --cflags sdl2 SDL2_ttf)
-SDL_LDFLAGS = $(shell pkg-config --libs sdl2 SDL2_ttf)
+SDL_LDFLAGS = $(shell pkg-config --libs sdl2 SDL2_ttf) -lraylib
 
 # Add other libraries here (e.g., SDL_image, SDL_ttf, etc.)
 # EXTRA_LIBS_CFLAGS = $(shell pkg-config --cflags sdl2_image)
