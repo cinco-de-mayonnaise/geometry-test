@@ -9,7 +9,7 @@ There are no releases, every major milestone(tag) will be marked as VXX, which s
 | :--------: | :------- | :----- |
 | V1 | Small spinning triangle in SDL2 | SDL2 |
 | V2 | Spinning triangle but in raylib     | raylib |
-| V3 | Bouncy triangles  | raylib |
+| V3 | Bouncy triangle  | raylib |
 |*(ongoing)* | Scrolling Stars (parallax scrolling)  | raylib |
 
 ### Compile
