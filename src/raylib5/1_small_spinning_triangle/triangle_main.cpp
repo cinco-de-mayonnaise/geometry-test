@@ -4,7 +4,7 @@
 
 using namespace std;
 
-namespace abdullah_raylib {
+namespace triangle_raylib {
 
 #define SCREEN_WIDTH 640   
 #define SCREEN_HEIGHT 480
